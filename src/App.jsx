@@ -2,12 +2,12 @@ import { useState } from 'react'
 
 const Observation = ({ observation }) => {
   return (
-    <ul>
-      <li>{observation.species}</li>
-      <li>{observation.amount}</li>
-      <li>{observation.place}</li>
-      <li>{observation.date}</li>
-    </ul>
+    <div>
+      <p>{observation.species}</p>
+      <p>{observation.amount}</p>
+      <p>{observation.place}</p>
+      <p>{observation.date}</p>
+    </div>
   )
 }
 
@@ -25,6 +25,15 @@ const App = () => {
   const [observations, setObservations] = useState([ 
     { species: 'Auroraperhonen', amount: '6 kpl', place: 'Aurajoki, Turku', date: '5.6.2024'}
   ]) 
+
+  const menuLines = document.querySelector('.menu-lines')
+  const nav = document.querySelector('.nav-menu')
+
+  menuLines.addEventListener('click', (event) => {
+    event.preventDefault()
+    nav.classList.toggle('hide')
+  })
+
 
   return (
   <div>

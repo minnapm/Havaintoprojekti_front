@@ -4,10 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Havaintopäiväkirja</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="/">
+              <img src="Havaintopaivakirjalogo.png"
+                   alt="logo">
+          </a> 
+      </div>
+          <div class="menu-lines">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span> 
+          </div>
+          <div class="nav-menu hide">
+              <a href="#">Etusivu</a>
+              <a href="#">Kasvit</a>
+              <a href="#">Sienet</a>
+              <a href="#">Linnut</a>
+              <a href="#">Perhoset</a>
+          </div>
+      </nav>
+   </header>
   </body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </html>
