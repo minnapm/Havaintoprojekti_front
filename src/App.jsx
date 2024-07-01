@@ -139,7 +139,7 @@ const App = () => {
     <Notification message={newMessage} />
       <form onSubmit = {handleLogout}>
         <div>
-        <p>{user.name} kirjautunut sisääb</p>
+        <p>{user.name} kirjautunut sisään</p>
         <button type="submit">kirjaudu ulos</button>
         </div>
       </form>

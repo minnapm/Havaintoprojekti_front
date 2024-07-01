@@ -23,34 +23,34 @@ const ObservationForm = ({ createObservation }) => {
 
     return (
         <div>
-          <h2>Create a New Observation</h2>
+          <h2>Lisää Uusi Havainto</h2>
     
           <form onSubmit={addObservation}>
           <div>
-              species
+              laji
               <input 
               value={newSpecies}
               onChange = {event => setNewSpecies(event.target.value)} />
             </div>
             <div>
-              amount
+              määrä
               <input 
               value={newAmount}
               onChange = {event => setNewAmount(event.target.value)} />
             </div>
             <div>
-              place
+              paikka
               <input 
               value={newPlace}
               onChange = {event => setNewPlace(event.target.value)} />
             </div>
             <div>
-              date
+              aika
               <input 
               value={newDate}
               onChange = {event => setNewDate(event.target.value)} />
             </div>
-            <button type="submit">Create</button>
+            <button type="submit">Tallenna</button>
           </form>
         </div>
       )
