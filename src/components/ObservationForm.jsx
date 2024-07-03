@@ -23,9 +23,9 @@ const ObservationForm = ({ createObservation }) => {
 
     return (
         <div>
-          <h2>Lisää Uusi Havainto</h2>
+          <h2 className="title">Lisää Uusi Havainto</h2>
     
-          <form onSubmit={addObservation}>
+          <form className="addobservation" onSubmit={addObservation}>
           <div>
               laji
               <input 
@@ -50,7 +50,7 @@ const ObservationForm = ({ createObservation }) => {
               value={newDate}
               onChange = {event => setNewDate(event.target.value)} />
             </div>
-            <button type="submit">Tallenna</button>
+            <button className="savebutton" type="submit">Tallenna</button>
           </form>
         </div>
       )

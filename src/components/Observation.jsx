@@ -1,6 +1,6 @@
 
 const Observation = ({ observation }) => (
-    <div>
+    <div className="observation">
       <p>{observation.species}</p>
       <p>{observation.amount}</p>
       <p>{observation.place}</p>

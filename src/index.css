@@ -22,6 +22,7 @@ a{
     align-items: center;
     padding-top: 1rem;
     border-bottom: 2px solid rgb(223, 251, 219);
+    margin-bottom: 25px;
 }
 
 .logo img{
@@ -88,4 +89,71 @@ a{
     .menu-lines{
         display: none;
     }
+}
+
+.title {
+    color: white;
+    padding: 12px;
+}
+
+.logintitle {
+    color: white;
+    float: right;
+    padding: 12px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+
+}
+
+.login {
+    color: white;
+    float: right;
+    clear: both;
+    padding-right: 50px;
+    text-align: right;
+}
+
+.loginbutton {
+    padding: 2px;
+    margin-top: 5px;
+}
+
+.addobservation {
+    color: white;
+    padding: 12px;
+    width: 13%;
+    text-align: right;
+}
+
+.savebutton {
+    padding: 2px;
+    margin-left: 150px;
+    margin-top: 5px;
+}
+
+.cancelbutton {
+    padding: 2px;
+    margin-left: 180px;
+    margin-top: -10px;
+}
+
+.newbutton {
+    padding: 2px;
+    margin-left: 50px;
+}
+
+.newobservationtext {
+    color:white;
+    padding: 12px;
+
+}
+
+.observation {
+    width: 200px;
+    font-size: 20px;
+    color:white;
+    padding: 12px;
+    border: 1px groove rgb(223, 251, 219);
+    margin: 25px;
+
 }

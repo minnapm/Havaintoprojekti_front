@@ -107,9 +107,9 @@ const App = () => {
   if (user === null) {
     return (
       <div>
-        <h2>Kirjaudu sisään</h2>
+        <h2 className="logintitle">Kirjaudu sisään</h2>
         <Notification message={newMessage} />
-        <form onSubmit = {handleLogin}>
+        <form className="login" onSubmit = {handleLogin}>
           <div>
             käyttäjänimi
             <input 
@@ -126,7 +126,7 @@ const App = () => {
             name="Password"
             onChange={({ target }) => setPassword(target.value)} />
           </div>
-          <button type="submit">Kirjaudu</button>
+          <button className="loginbutton" type="submit">Kirjaudu</button>
         </form>
       </div>
     )
@@ -135,12 +135,13 @@ const App = () => {
 
   return (
   <div>
-    <h2>Havaintopäiväkirja</h2>
+    <h2 className="title">Havaintopäiväkirja</h2>
     <Notification message={newMessage} />
       <form onSubmit = {handleLogout}>
-        <div>
-        <p>{user.name} kirjautunut sisään</p>
-        <button type="submit">kirjaudu ulos</button>
+        <div className="login">
+        <p>{user.username}</p> 
+        <p>kirjautunut sisään</p>
+        <button className="loginbutton" type="submit">Kirjaudu ulos</button>
         </div>
       </form>
       <Togglable buttonLabel="Uusi havainto" ref={obsFormRef}>
