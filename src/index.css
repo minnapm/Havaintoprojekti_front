@@ -46,10 +46,9 @@ a{
 }
 
 .nav-menu{
-    position: fixed;
-    width: 94%;
+    position: absolute;
+    width: 100%;
     top: 6rem;
-    left: 18px;
     background-color: #696969;
     font-weight: 600;
 }
@@ -96,8 +95,13 @@ a{
 .addobservation {
     color: white;
     padding: 12px;
-    width: 13%;
-    text-align: right;
+    text-align:right;
+    float: left;
+}
+
+.observationinput {
+    margin-left: 4px;
+    margin-bottom: 3px;
 }
 
 .savebutton {
@@ -107,20 +111,21 @@ a{
 }
 
 .cancelbutton {
-    padding: 2px;
-    margin-left: 180px;
-    margin-top: -10px;
+    padding: 3px;
+    margin-left: 5px;
+    color: white;
+    background-color: #8B0000;
 }
 
 .newbutton {
     padding: 2px;
     margin-left: 50px;
+    float: left;
 }
 
 .newobservationtext {
     color:white;
     padding: 12px;
-
 }
 
 .observation {
@@ -130,8 +135,9 @@ a{
     padding: 12px;
     border: 1px groove rgb(223, 251, 219);
     position:relative;
+    clear: both;
     z-index: -1;
-    margin: 10px;
+    margin-bottom: 10px;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%)
@@ -139,7 +145,7 @@ a{
 
 @media screen and (min-width:600px){
     .navbar{
-        justify-content: space-around;
+        justify-content: space-around; 
     }
     .nav-menu{
         display: block;

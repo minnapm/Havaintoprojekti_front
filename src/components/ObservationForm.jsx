@@ -29,24 +29,28 @@ const ObservationForm = ({ createObservation }) => {
           <div>
               laji
               <input 
+              className="observationinput"
               value={newSpecies}
               onChange = {event => setNewSpecies(event.target.value)} />
             </div>
             <div>
               määrä
               <input 
+              className="observationinput"
               value={newAmount}
               onChange = {event => setNewAmount(event.target.value)} />
             </div>
             <div>
               paikka
               <input 
+              className="observationinput"
               value={newPlace}
               onChange = {event => setNewPlace(event.target.value)} />
             </div>
             <div>
               aika
               <input 
+              className="observationinput"
               value={newDate}
               onChange = {event => setNewDate(event.target.value)} />
             </div>
