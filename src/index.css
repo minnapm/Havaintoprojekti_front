@@ -52,8 +52,8 @@ a{
     left: 18px;
     background-color: #696969;
     font-weight: 600;
- 
 }
+
 .nav-menu a{
     display: block;
     text-align: center;
@@ -67,30 +67,6 @@ a{
     display: none;
 }
 
-@media screen and (min-width:600px){
-    .navbar{
-        justify-content: space-around;
-    }
-    .nav-menu{
-        display: block;
-        position: static;
-        width: auto;
-        margin-right:20px;
-        background: none;
-    }
-    .nav-menu a{
-        display: inline-block;
-        padding: 15px 20px;
-    }
-    .nav-menu a:hover{
-        background-color:#2f4f4f;
-        border-radius: 5px;
-    }
-    .menu-lines{
-        display: none;
-    }
-}
-
 .title {
     color: white;
     padding: 12px;
@@ -102,7 +78,6 @@ a{
     padding: 12px;
     padding-right: 50px;
     padding-bottom: 20px;
-
 }
 
 .login {
@@ -154,6 +129,34 @@ a{
     color:white;
     padding: 12px;
     border: 1px groove rgb(223, 251, 219);
-    margin: 25px;
+    position:relative;
+    z-index: -1;
+    margin: 10px;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
 
+@media screen and (min-width:600px){
+    .navbar{
+        justify-content: space-around;
+    }
+    .nav-menu{
+        display: block;
+        position: static;
+        width: auto;
+        margin-right:20px;
+        background: none;
+    }
+    .nav-menu a{
+        display: inline-block;
+        padding: 15px 20px;
+    }
+    .nav-menu a:hover{
+        background-color:#2f4f4f;
+        border-radius: 5px;
+    }
+    .menu-lines{
+        display: none;
+    }
 }

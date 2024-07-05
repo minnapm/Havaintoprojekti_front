@@ -39,6 +39,18 @@ const App = () => {
 
   const obsFormRef = useRef()
 
+  const menuLines = document.querySelector('.menu-lines')
+  const nav = document.querySelector('.nav-menu')
+
+  
+
+  useEffect(() => {
+    menuLines.addEventListener('click', (event) => {
+        event.preventDefault()
+        nav.classList.toggle('hide')
+      })
+  }, [])
+
   useEffect(() => {
     obsService
     .getAll()
@@ -56,14 +68,6 @@ const App = () => {
       obsService.setToken(user.token)
     }
   }, [])
-
-  const menuLines = document.querySelector('.menu-lines')
-  const nav = document.querySelector('.nav-menu')
-
-  menuLines.addEventListener('click', (event) => {
-    event.preventDefault()
-    nav.classList.toggle('hide')
-  })
 
   const handleLogin = async (event) => {
     event.preventDefault()
