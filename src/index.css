@@ -51,6 +51,7 @@ a{
     top: 6rem;
     background-color: #696969;
     font-weight: 600;
+    z-index: 99999;
 }
 
 .nav-menu a{
