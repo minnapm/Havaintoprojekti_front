@@ -18,11 +18,10 @@ const Notification = ({ message }) => {
 }
 
 const Observations = (props) => {
-  console.log(props.observations)
   return (
     <ul>
       {props.observations.map(observation =>
-        <Observation key={observation.id} observation={observation}/>
+        <Observation key={observation.id} observation={observation} deleteObservation = { () => props.deleteObservationOf(observation.id)} user={props.user}/>
       )}
     </ul>
   )
@@ -54,10 +53,9 @@ const App = () => {
   useEffect(() => {
     obsService
     .getAll()
-    .then(observations => {
-      //console.log("Observations from api: " + observations)
-      setObservations(observations)
-    })
+    .then(observations => 
+      setObservations( observations )
+    )
   }, [])
 
   useEffect(() => {
@@ -108,6 +106,26 @@ const App = () => {
     })
   }
 
+  const deleteObservationOf = (id) => {
+    const observation = observations.find(o => o.id === id)
+    console.log('this observation ' + observation.species + ' was requested to be deleted')
+    if (window.confirm(`Delete ${observation.species}?`)) {
+      obsService
+      .updateToDelete(id)
+      .then(response => {
+        console.log('Resource deleted succesfully:', response.data)
+        setNewMessage(`${observation.species} poistettiin havainnoista.`)
+        setTimeout( () => {
+          setNewMessage(null)
+        }, 3000)
+        setObservations(observations.filter((item) => item.id != id))
+      })
+      .catch(error => {
+        console.error('Error deleting resource:', error)
+      })
+    }
+  }
+
   if (user === null) {
     return (
       <div>
@@ -151,7 +169,7 @@ const App = () => {
       <Togglable buttonLabel="Uusi havainto" ref={obsFormRef}>
          <ObservationForm createObservation={addObservation} />
      </Togglable>
-     <Observations observations={observations} />
+     <Observations observations={observations} deleteObservationOf={deleteObservationOf} user={user}/>
   </div>
   )
 }
