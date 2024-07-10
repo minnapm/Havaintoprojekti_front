@@ -13,6 +13,26 @@ const getAll = () => {
     return request.then(response => response.data)
 }
 
+const getPlants = () => {
+    const request = axios.get('/api/observations/kasvit')
+    return request.then(response => response.data)
+}
+
+const getMushrooms = () => {
+    const request = axios.get('/api/observations/sienet')
+    return request.then(response => response.data)
+}
+
+const getBirds = () => {
+    const request = axios.get('/api/observations/linnut')
+    return request.then(response => response.data)
+}
+
+const getButterflies = () => {
+    const request = axios.get('/api/observations/perhoset')
+    return request.then(response => response.data)
+}
+
 const create = async newObject => {
     const config = {
         headers: { Authorization: token },
@@ -32,4 +52,4 @@ const updateObservation = async (id, newObject) => {
 }
 
 
-export default { getAll, create, updateToDelete, updateObservation, setToken }
+export default { getAll, create, updateToDelete, updateObservation, setToken, getPlants, getMushrooms, getBirds, getButterflies }

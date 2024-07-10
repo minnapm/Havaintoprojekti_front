@@ -54,6 +54,7 @@ const ObservationForm = ({ createObservation }) => {
               aika
               <input 
               className="observationinput"
+              type="date"
               value={newDate}
               onChange = {event => setNewDate(event.target.value)} />
             </div>
