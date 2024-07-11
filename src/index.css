@@ -75,6 +75,7 @@ a{
 .logintitle {
     color: white;
     float: right;
+    clear: both;
     padding: 12px;
     padding-right: 50px;
     padding-bottom: 20px;
@@ -88,7 +89,39 @@ a{
     text-align: right;
 }
 
+.logininput {
+    margin-left: 4px;
+    margin-bottom: 3px;
+}
+
 .loginbutton {
+    padding: 2px;
+    margin-top: 5px;
+}
+
+.signuptitle{
+    color:white;
+    float: right;
+    clear: both;
+    padding: 12px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+.signup {
+    color: white;
+    float: right;
+    clear: both;
+    padding-right: 50px;
+    text-align: right;
+}
+
+.signupinput{
+    margin-left: 4px;
+    margin-bottom: 3px;
+}
+
+.signupbutton{
     padding: 2px;
     margin-top: 5px;
 }

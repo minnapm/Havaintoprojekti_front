@@ -4,6 +4,9 @@ import ObservationForm from './components/ObservationForm'
 import obsService from './services/observations'
 import loginService from './services/login'
 import Togglable from './components/Togglable'
+import userService from './services/users'
+import SignupForm from './components/SignupForm'
+import LoginForm from './components/LoginForm'
 
 
 const Notification = ({ message }) => {
@@ -136,6 +139,28 @@ const App = () => {
     window.localStorage.removeItem('loggedObservationappUser')
   }
 
+  const addUser = (userObject) =>{
+    userService
+    .createUser(userObject)
+    .then(async returnedUser => {
+
+      const user = await loginService.login({
+        username: userObject.username, password: userObject.password,
+      })
+      window.localStorage.setItem(
+        'loggedObservationappUser', JSON.stringify(user)
+      )
+      obsService.setToken(user.token)
+      setUser(user)
+
+      setNewMessage(`Käyttäjä luotu onnistuneesti: ${userObject.username}`)
+        setTimeout( () => {
+          setNewMessage(null)
+        }, 3000)
+    })
+
+  }
+
   const addObservation = (observationObject) =>{
     console.log("havainnon lisäämisnappia painettiin")
     obsFormRef.current.toggleVisibility()
@@ -195,27 +220,15 @@ const App = () => {
    </header>
       {!user &&(
       <div>
-        <h2 className="logintitle">Kirjaudu sisään</h2>
         <Notification message={newMessage} />
-        <form className="login" onSubmit = {handleLogin}>
-          <div>
-            käyttäjänimi
-            <input 
-            type="text" 
-            value={username} 
-            name="Username"
-            onChange = {({ target }) => setUsername(target.value)} />
-          </div>
-          <div>
-            salasana
-            <input 
-            type="password"
-            value={password}
-            name="Password"
-            onChange={({ target }) => setPassword(target.value)} />
-          </div>
-          <button className="loginbutton" type="submit">Kirjaudu</button>
-        </form>
+        <LoginForm 
+          username={username}
+          password={password}
+          handleUsernameChange={({ target }) => setUsername(target.value)}
+          handlePasswordChange={({ target }) => setPassword(target.value)}
+          handleSubmit={handleLogin}
+           />
+        <SignupForm createNewUser={addUser} />
       </div>
     )}
       {user && (<div>
