@@ -67,25 +67,36 @@ a{
     display: none;
 }
 
+/*havaintopäiväkirja*/
 .title {
     color: white;
     padding: 12px;
 }
 
+.grid-container {
+    display: grid;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.grid-item {
+    padding: 20px;
+}
+
+.one {
+    grid-column-start: 1;
+}
+
+.two {
+}
+
 .logintitle {
     color: white;
-    float: right;
-    clear: both;
     padding: 12px;
-    padding-right: 50px;
-    padding-bottom: 20px;
 }
 
 .login {
     color: white;
-    float: right;
-    clear: both;
-    padding-right: 50px;
     text-align: right;
 }
 
@@ -101,18 +112,10 @@ a{
 
 .signuptitle{
     color:white;
-    float: right;
-    clear: both;
     padding: 12px;
-    padding-top: 50px;
-    padding-right: 50px;
-    padding-bottom: 20px;
 }
 .signup {
     color: white;
-    float: right;
-    clear: both;
-    padding-right: 50px;
     text-align: right;
 }
 
@@ -126,11 +129,20 @@ a{
     margin-top: 5px;
 }
 
+/*Luo uusi havainto tästä:*/
+.newobservationtext {
+    color:white;
+    padding: 12px;
+}
+/*Uusi havainto*/
+.newbutton {
+    padding: 2px;
+    margin-left: 50px;
+}
+
 .addobservation {
     color: white;
     padding: 12px;
-    text-align:right;
-    float: left;
 }
 
 .observationinput {
@@ -146,44 +158,47 @@ a{
 
 .cancelbutton {
     padding: 3px;
-    margin-left: 5px;
     color: white;
     background-color: #8B0000;
 }
 
-.newbutton {
-    padding: 2px;
-    margin-left: 50px;
-    float: left;
-}
-
-.newobservationtext {
-    color:white;
-    padding: 12px;
-}
-
 .observationcontainer {
-    width: 200px;
-    position: relative;
-    clear: both;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     z-index: 1;
 }
 
 .observation {
     font-size: 20px;
     color:white;
-    padding: 12px;
+    padding: 16px;
     border: 1px groove rgb(223, 251, 219);
     margin-bottom: 10px;
 }
 
+.observationuser {
+    font-size: 16px;
+    padding-top: 6px;
+    margin-top: 4px;
+    border-top: 1px dotted rgb(223, 251, 219);
+    /*border-top-width:10px;*/
+}
+
+.observationimage {
+    height: 40px;
+    width: 60px;
+    max-width: 100%;
+    display: block;
+}
+
 .deleteobservation {
-    position:absolute;
-    top:50%;
-    left: 110%;
+}
+
+.logout {
+    color: white;
+}
+
+.logoutbutton {
+    padding: 2px;
+    margin-top: 5px;
 }
 
 @media screen and (min-width:600px){
@@ -207,5 +222,15 @@ a{
     }
     .menu-lines{
         display: none;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: 1fr 3fr 1fr;
     }
 }

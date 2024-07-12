@@ -6,15 +6,18 @@ const ObservationForm = ({ createObservation }) => {
     const [newPlace, setNewPlace] = useState('')
     const [newDate, setNewDate] = useState('')
     const [category, setCategory] = useState('')
+    const [file, setFile] = useState('')
 
     const addObservation = (event) =>{
         event.preventDefault()
+        console.log(file)
         createObservation({
             species: newSpecies,
             amount: newAmount,
             place: newPlace,
             date: newDate,
             category: category,
+            image: file,
         })
 
         setNewSpecies('')
@@ -22,7 +25,24 @@ const ObservationForm = ({ createObservation }) => {
         setNewPlace('')
         setNewDate('')
         setCategory('')
+        setFile('')
     }
+
+    const handleImage = (event) => {
+      const reader = new FileReader()
+      const file = event.target.files[0]
+      reader.readAsDataURL(file)
+      reader.onloadend = () => {
+        
+        var result = reader.result
+        setFile(result)
+      }
+    }
+
+     /* const handleImage = (event) => {
+        setFile(URL.createObjectURL(event.target.files[0]))
+      }*/
+
 
     return (
         <div>
@@ -57,6 +77,16 @@ const ObservationForm = ({ createObservation }) => {
               type="date"
               value={newDate}
               onChange = {event => setNewDate(event.target.value)} />
+            </div>
+            <div>
+              kuva
+              <input 
+              className="observationinput"
+              type="file"
+              //value={image}
+              name="image"
+              onChange = {handleImage} />
+              <img src={file} />
             </div>
             <div className="radio">
               <p>kategoria:</p>

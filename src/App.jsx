@@ -231,25 +231,32 @@ const App = () => {
         <SignupForm createNewUser={addUser} />
       </div>
     )}
-      {user && (<div>
-        <h2 className="title">Havaintopäiväkirja</h2>
+      {user && (<div class="grid-container">
         <Notification message={newMessage} />
-          <form onSubmit = {handleLogout}>
-            <div className="login">
-            <p>{user.username}</p> 
-            <p>kirjautunut sisään</p>
-            <button className="loginbutton" type="submit">Kirjaudu ulos</button>
-            </div>
-          </form>
+        <div className="grid-item one">
+        <p className="newobservationtext"> Luo uusi havainto tästä: </p>
           <Togglable buttonLabel="Uusi havainto" ref={obsFormRef}>
             <ObservationForm createObservation={addObservation} />
         </Togglable>
+        </div>
+        <div className="grid-item two">
         <Observations observations={observations} deleteObservationOf={deleteObservationOf} user={user}/>
+        </div>
+        <div className="grid-item three">
+          <form onSubmit = {handleLogout}>
+            <div className="logout">
+            <p>{user.username}</p> 
+            <p>kirjautunut sisään</p>
+            <button className="logoutbutton" type="submit">Kirjaudu ulos</button>
+            </div>
+          </form> 
+        </div>
+        
       </div>)}
     </div>
     
   )
 }
 
-
+//<h2 className="title">Havaintopäiväkirja</h2>
 export default App

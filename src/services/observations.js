@@ -35,7 +35,7 @@ const getButterflies = () => {
 
 const create = async newObject => {
     const config = {
-        headers: { Authorization: token },
+        headers: { Authorization: token, "Content-Type": "multipart/form-data" },
       }
     const response = await axios.post(baseUrl, newObject, config)
     return response.data
