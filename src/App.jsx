@@ -36,7 +36,7 @@ const App = () => {
   const [username, setUsername] = useState('') 
   const [password, setPassword] = useState('') 
   const [user, setUser] = useState(null)
-  const [newMessage, setNewMessage] = useState('')
+  const [newMessage, setNewMessage] = useState(null)
   const [hamburgerHidden, setHamburgerHidden] = useState(true)
   const [headerState, setHeaderState] = useState("Etusivu")
 
@@ -178,7 +178,7 @@ const App = () => {
   const deleteObservationOf = (id) => {
     const observation = observations.find(o => o.id === id)
     console.log('this observation ' + observation.species + ' was requested to be deleted')
-    if (window.confirm(`Poista ${observation.species} pysyvästi?`)) {
+    if (window.confirm(`Haluatko varmasti poistaa ${observation.species} pysyvästi?`)) {
       obsService
       .updateToDelete(id)
       .then(response => {
@@ -200,10 +200,9 @@ const App = () => {
     <div>
       <header>
       <nav className="navbar">
-        <div className="logo">
-          <a href="/">
-          </a> 
-      </div>
+        <div className="logo"> 
+           <p>Havaintopäiväkirja</p>
+        </div>
           <div className="menu-lines" onClick={handleHamburgerClick}>
               <span className="line"></span>
               <span className="line"></span>

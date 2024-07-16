@@ -25,12 +25,6 @@ a{
     margin-bottom: 25px;
 }
 
-.logo img{
-    width: 4rem;
-    height: 4rem;
-    margin-left:1rem;
-}
-
 .menu-lines{
     padding-right: 1.5rem;
     cursor: pointer;
@@ -68,15 +62,37 @@ a{
 }
 
 /*havaintopäiväkirja*/
+.logo {
+    color: white;
+    font-family: cursive;
+    font-size: 1.2rem;
+    background-color: #355E3B;
+    padding: 8px;
+    border: 2px ridge #355E3B;
+    border-radius: 5px;
+    border-image: linear-gradient(45deg, #FFFFFF, #355E3B) 10;
+
+}
+
 .title {
     color: white;
     padding: 12px;
+}
+
+.message {
+    color: white;
+    border-style: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #2F4F4F;
+
 }
 
 .grid-container {
     display: grid;
     margin: 0 auto;
     gap: 1rem;
+    justify-items: center;
 }
 
 .grid-item {
@@ -87,9 +103,6 @@ a{
     grid-column-start: 1;
 }
 
-.two {
-}
-
 .logintitle {
     color: white;
     padding: 12px;
@@ -97,7 +110,7 @@ a{
 
 .login {
     color: white;
-    text-align: right;
+    padding: 12px;
 }
 
 .logininput {
@@ -116,7 +129,7 @@ a{
 }
 .signup {
     color: white;
-    text-align: right;
+    padding: 12px;
 }
 
 .signupinput{
@@ -140,6 +153,7 @@ a{
     margin-left: 50px;
 }
 
+/*Havainnon lisäämislomake*/
 .addobservation {
     color: white;
     padding: 12px;
@@ -162,8 +176,14 @@ a{
     background-color: #8B0000;
 }
 
+/*Havainto*/
 .observationcontainer {
     z-index: 1;
+}
+
+.column1 {
+    word-wrap: break-word;
+    max-width: 100px;
 }
 
 .observation {
@@ -171,7 +191,8 @@ a{
     color:white;
     padding: 16px;
     border: 1px groove rgb(223, 251, 219);
-    margin-bottom: 10px;
+    margin-bottom: 2px;
+    margin-top: 20px;
 }
 
 .observationuser {
@@ -183,13 +204,14 @@ a{
 }
 
 .observationimage {
-    height: 40px;
-    width: 60px;
+    height: auto;
+    width: 300px;
     max-width: 100%;
     display: block;
 }
 
 .deleteobservation {
+    margin-left: 400px;
 }
 
 .logout {
@@ -231,6 +253,6 @@ a{
 
 @media (min-width: 900px) {
     .grid-container {
-        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-columns: 1fr 4fr 1fr;
     }
 }

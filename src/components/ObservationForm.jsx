@@ -86,7 +86,7 @@ const ObservationForm = ({ createObservation }) => {
               //value={image}
               name="image"
               onChange = {handleImage} />
-              <img src={file} />
+              <img src={file} width="100" heigth="auto"/>
             </div>
             <div className="radio">
               <p>kategoria:</p>
