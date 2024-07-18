@@ -11,6 +11,7 @@ const Observation = ({ observation, deleteObservation, user }) => {
               <p> {observation.amount} kpl</p>
               <p> {observation.place}</p>
               <p> {observation.date}</p>
+              <p className="details"> {observation.details}</p>
           </td>
           <td>
             <img className="observationimage" src={observation.image} />

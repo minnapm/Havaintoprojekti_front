@@ -162,7 +162,15 @@ const App = () => {
   }
 
   const addObservation = (observationObject) =>{
-    console.log("havainnon lisäämisnappia painettiin")
+    //console.log("havainnon lisäämisnappia painettiin")
+    if (!observationObject.species || !observationObject.amount || !observationObject.place || !observationObject.date || !observationObject.category) {
+      setNewMessage(`Virhe: Pakollinen kenttä puuttuu. Täytä pakolliset kentät ja yritä uudelleen.`)
+        setTimeout( () => {
+          setNewMessage(null)
+        }, 5000)
+    }
+
+    else {
     obsFormRef.current.toggleVisibility()
     obsService
     .create(observationObject)
@@ -174,6 +182,7 @@ const App = () => {
         }, 3000)
     })
   }
+}
 
   const deleteObservationOf = (id) => {
     const observation = observations.find(o => o.id === id)

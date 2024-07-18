@@ -7,6 +7,7 @@ const ObservationForm = ({ createObservation }) => {
     const [newDate, setNewDate] = useState('')
     const [category, setCategory] = useState('')
     const [file, setFile] = useState('')
+    const [newDetails, setNewDetails] = useState('')
 
     const addObservation = (event) =>{
         event.preventDefault()
@@ -18,6 +19,7 @@ const ObservationForm = ({ createObservation }) => {
             date: newDate,
             category: category,
             image: file,
+            details: newDetails,
         })
 
         setNewSpecies('')
@@ -26,6 +28,7 @@ const ObservationForm = ({ createObservation }) => {
         setNewDate('')
         setCategory('')
         setFile('')
+        setNewDetails('')
     }
 
     const handleImage = (event) => {
@@ -48,48 +51,60 @@ const ObservationForm = ({ createObservation }) => {
         <div>
           <h2 className="title">Lisää Uusi Havainto</h2>
     
-          <form className="addobservation" onSubmit={addObservation}>
+          <form id="obs_form" className="addobservation" onSubmit={addObservation}>
+            <p className="required">*-merkityt ovat pakollisia kenttiä</p>
           <div>
-              laji
+              laji*:
               <input 
               className="observationinput"
               value={newSpecies}
               onChange = {event => setNewSpecies(event.target.value)} />
             </div>
             <div>
-              määrä
+              määrä*:
               <input 
               className="observationinput"
+              type="number"
+              min="1"
               value={newAmount}
               onChange = {event => setNewAmount(event.target.value)} />
             </div>
             <div>
-              paikka
+              paikka*:
               <input 
               className="observationinput"
               value={newPlace}
               onChange = {event => setNewPlace(event.target.value)} />
             </div>
             <div>
-              aika
+              aika*:
               <input 
               className="observationinput"
               type="date"
+              max={(new Date).toISOString().split("T")[0]}
               value={newDate}
               onChange = {event => setNewDate(event.target.value)} />
             </div>
             <div>
-              kuva
+              kuva:
               <input 
               className="observationinput"
               type="file"
               //value={image}
               name="image"
+              accept="image/"
               onChange = {handleImage} />
               <img src={file} width="100" heigth="auto"/>
             </div>
+            <div>
+              lisätietoja:
+              <input 
+              className="observationinput"
+              value={newDetails}
+              onChange = {event => setNewDetails(event.target.value)} />
+            </div>
             <div className="radio">
-              <p>kategoria:</p>
+              <p>kategoria*:</p>
               <input 
               type="radio" 
               name="category"
@@ -97,6 +112,7 @@ const ObservationForm = ({ createObservation }) => {
               checked={category === 'Kasvit'}
               onChange={event => setCategory(event.target.value)}/>
               Kasvit 
+              <br></br>
               <input 
               type="radio"
               name="category" 
@@ -104,6 +120,7 @@ const ObservationForm = ({ createObservation }) => {
               checked={category === 'Sienet'}
               onChange={event => setCategory(event.target.value)}/>
               Sienet 
+              <br></br>
               <input 
               type="radio" 
               name="category"
@@ -111,6 +128,7 @@ const ObservationForm = ({ createObservation }) => {
               value="Linnut"
               onChange={event => setCategory(event.target.value)}/>
               Linnut  
+              <br></br>
               <input 
               type="radio" 
               name="category"
@@ -118,6 +136,7 @@ const ObservationForm = ({ createObservation }) => {
               checked={category === 'Perhoset'}
               onChange={event => setCategory(event.target.value)}/>
               Perhoset  
+              <br></br>
             </div>
             <button className="savebutton" type="submit">Tallenna</button>
           </form>

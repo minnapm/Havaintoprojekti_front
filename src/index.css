@@ -153,6 +153,11 @@ a{
     margin-left: 50px;
 }
 
+.required {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
 /*Havainnon lisäämislomake*/
 .addobservation {
     color: white;
@@ -161,7 +166,7 @@ a{
 
 .observationinput {
     margin-left: 4px;
-    margin-bottom: 3px;
+    margin-bottom: 10px;
 }
 
 .savebutton {
@@ -183,7 +188,12 @@ a{
 
 .column1 {
     word-wrap: break-word;
-    max-width: 100px;
+    max-width: 250px;
+}
+
+.details {
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 .observation {
@@ -205,13 +215,13 @@ a{
 
 .observationimage {
     height: auto;
-    width: 300px;
+    width: 250px;
     max-width: 100%;
     display: block;
 }
 
 .deleteobservation {
-    margin-left: 400px;
+    margin-left: 350px;
 }
 
 .logout {
