@@ -4,7 +4,6 @@ import { render, screen } from '@testing-library/react'
 import Observation from './Observation'
 
 test('renders content', () => {
-    const user = userEvent.setup()
 
     const observation = {
         species: "Kiuru",
@@ -13,10 +12,13 @@ test('renders content', () => {
         date: "2024-07-15",
         category: "Linnut",
         details: "Laulelevat lentäessään",
+        user: {
+            username: "kayttaja200",
+        }
     }
 
   
-    render(<Observation observation={observation} />)
+    render(<Observation observation={observation} user={observation.user}/>)
   
     screen.debug()
   
